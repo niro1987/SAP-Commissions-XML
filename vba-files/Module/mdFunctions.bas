@@ -40,14 +40,7 @@ Function Parse_Function(ByVal Node As MSXML2.IXMLDOMNode) As String
                 Parse_Function = """" & Node.Text & """"
             End If
         Case "VALUE"
-            Select Case Node.Attributes(1).Text
-                Case "integer", "quantity", "EUR"
-                    Parse_Function = Node.Attributes(0).Text
-                Case "percent"
-                    Parse_Function = VBA.CStr(VBA.CDbl(Node.Attributes(0).Text) * 100) & "%"
-                Case Else
-                    Debug.Print Node.Attributes(1).Text & " is currently not supported."
-            End Select
+            Parse_Function = Node.Attributes(0).Text
         Case Else
             Debug.Print Node.nodeName & " is currently not supported."
     End Select
