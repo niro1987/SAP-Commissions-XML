@@ -95,8 +95,7 @@ Private Function RULE(ByVal Node As MSXML2.IXMLDOMNode) As Scripting.Dictionary
             Case "CONDITION_EXPRESSION"
                 RULE.Add "CONDITION", mdFunctions.Parse_Function(N.FirstChild)
             Case Else
-                Debug.Print N.nodeName
-                Stop
+                Debug.Print N.nodeName & " is currently not supported."
         End Select
     Next N
     RULE.Add "OUTPUT", ACTION_EXPRESSION_SET

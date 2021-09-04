@@ -77,8 +77,7 @@ Private Function COMP(ByVal Node As MSXML2.IXMLDOMNode) As Scripting.Dictionary
                 Next Attr
                 RULES.Add RULE
             Case Else
-                Debug.Print N.nodeName
-                Stop
+                Debug.Print N.nodeName & " is currently not supported."
         End Select
     Next N
     COMP.Add "RULES", RULES

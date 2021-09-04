@@ -46,12 +46,10 @@ Function Parse_Function(ByVal Node As MSXML2.IXMLDOMNode) As String
                 Case "percent"
                     Parse_Function = VBA.CStr(VBA.CDbl(Node.Attributes(0).Text) * 100) & "%"
                 Case Else
-                    Debug.Print Node.XML
-                    Stop
+                    Debug.Print Node.Attributes(1).Text & " is currently not supported."
             End Select
         Case Else
-            Debug.Print Node.XML
-            Stop
+            Debug.Print Node.nodeName & " is currently not supported."
     End Select
     
 End Function
@@ -89,8 +87,7 @@ Private Function O_Parse(ByVal Node As MSXML2.IXMLDOMNode) As String
         Case "GREATERTHANEQUALTO_OPERATOR": Operator = " >= "
         Case "LESSTHANEQUALTO_OPERATOR":    Operator = " <= "
         Case Else
-            Debug.Print Node.Attributes.getNamedItem("ID").Text
-            Stop
+            Debug.Print Node.Attributes.getNamedItem("ID").Text & " is currently not supported."
     End Select
     
     O_Parse = _

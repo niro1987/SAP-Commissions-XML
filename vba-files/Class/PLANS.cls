@@ -76,10 +76,9 @@ Private Function PLAN(ByVal Node As MSXML2.IXMLDOMNode) As Scripting.Dictionary
                 Next Attr
                 COMPONENTS.Add COMPONENT
             Case "VARIABLE_ASSIGNMENT"
-                Debug.Assert True
+                Debug.Assert True ' TODO
             Case Else
-                Debug.Print N.nodeName
-                Stop
+                Debug.Print N.nodeName & " is currently not supported."
         End Select
     Next N
     PLAN.Add "COMPONENTS", COMPONENTS
